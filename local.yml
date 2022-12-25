@@ -4,6 +4,24 @@
   become: true # enables sudo
 
   tasks:
-  - name: install rofi
+  - name: update repository indices
+    apt:
+      update_cache: yes
+
+  - name: Add neovim ppa
+    apt_repository:
+      repo: 'ppa:neovim-ppa/unstable'
+      state: present
+
+  - name: installing apt packages
     package:
-      name: rofi
+      name: 
+        - rofi
+        - tmux
+        - xclip
+        - x11-utils
+        - x11-xserver-utils
+        - i3
+        - rofi
+        - feh
+        - python3
