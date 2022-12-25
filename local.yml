@@ -1,0 +1,9 @@
+--- # marks start of a yaml file 
+- hosts: localhost # sets ansible to be run agains localhost
+  connection: local
+  become: true # enables sudo
+
+  tasks:
+  - name: install htop
+    package:
+      name: htop
