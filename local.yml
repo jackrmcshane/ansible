@@ -21,7 +21,6 @@
         - xclip
         - x11-utils
         - x11-xserver-utils
-        - i3
         - rofi
         - feh
         - python3
