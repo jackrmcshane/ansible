@@ -4,9 +4,6 @@
   become: true # enables sudo
 
   tasks:
-  - name: update repository indices
-    apt:
-      update_cache: yes
 
   - name: Add neovim ppa
     apt_repository:
@@ -25,3 +22,5 @@
         - rofi
         - feh
         - python3
+        - neovim
+      update_cache: yes
