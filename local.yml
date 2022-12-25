@@ -12,6 +12,7 @@
     apt_repository:
       repo: 'ppa:neovim-ppa/unstable'
       state: present
+      update_cache: yes
 
   - name: installing apt packages
     package:
