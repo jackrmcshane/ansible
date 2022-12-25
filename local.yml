@@ -4,6 +4,6 @@
   become: true # enables sudo
 
   tasks:
-  - name: install htop
+  - name: install rofi
     package:
-      name: htop
+      name: rofi
