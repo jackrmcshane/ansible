@@ -1,0 +1,45 @@
+- name: Add neovim nightly ppa
+  become: true
+  apt_repository:
+    repo: 'ppa:neovim-ppa/unstable'
+    state: present
+    update_cache: yes
+
+- name: install neovim nightly
+  become: true
+  apt:
+    name: neovim
+    state: present
+
+- name: set neovim as default editor
+  become: true
+  lineinfile:
+    path: /etc/environment
+    line: EDITOR=/usr/bin/nvim
+    state: present
+
+- block:
+  - name: add github key to ssh-agent
+    shell:
+      eval "$(ssh-agent)"
+      ssh-add "/home/{{ lookup('env', 'USER') }}/.ssh/id_rsa"
+
+  - name: clone nvim repo
+    git:
+      repo: "{{ nivm_repo }}"
+      dest: "/home/{{ lookup('env', 'USER') }}/.config/nvim"
+      version: jdhao-incorp
+      clone: yes
+
+- name: install nvim python dependency
+  shell:
+    pip3 install neovim
+
+- name: install packer
+  git:
+    repo: "https://github.com/wbthomason/packer.nvim"
+    dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+
+- name: sync packer
+  shell:
+    nvim -c "PackerSync" && nvim -c "qa"

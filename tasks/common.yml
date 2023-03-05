@@ -1,0 +1,22 @@
+- name: install apt packages
+  become: true
+  apt:
+    name:
+      - xorg
+      - tmux
+      - xclip
+      - feh
+      - fzf
+      - ripgrep
+      - python3-pip
+      - screenkey
+      - openssh-client # acess to remote machines
+      - openssh-server # access from remote machines
+
+- name: install snap packages
+  become: true
+  snap:
+    name: 
+      - alacritty
+      - btop
+      - gh # github cli

@@ -1,26 +1,10 @@
 --- # marks start of a yaml file 
 - hosts: localhost # sets ansible to be run agains localhost
   connection: local
-  become: true # enables sudo
+  vars:
+    nvim_repo: "git@github.com:jackrmcshane/init.lua.git"
+    dotfile_repo: "git@github.com:jackrmcshane/dotfiles.git"
 
   tasks:
-
-  - name: Add neovim ppa
-    apt_repository:
-      repo: 'ppa:neovim-ppa/unstable'
-      state: present
-      update_cache: yes
-
-  - name: installing apt packages
-    package:
-      name: 
-        - rofi
-        - tmux
-        - xclip
-        - x11-utils
-        - x11-xserver-utils
-        - rofi
-        - feh
-        - python3
-        - neovim
-      update_cache: yes
+    - include: tasks/common.yml
+    - include: tasks/neovim.yml
