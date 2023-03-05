@@ -30,7 +30,7 @@
       dest: "/home/{{ lookup('env', 'USER') }}/.config/nvim"
       version: jdhao-incorp
       clone: yes
-      accept_newhostkey: true
+      accept_hostkey: true
 
 - name: install nvim python dependency
   shell:
