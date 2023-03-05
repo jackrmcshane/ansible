@@ -8,3 +8,4 @@
   tasks:
     - include: tasks/common.yml
     - include: tasks/neovim.yml
+    - include: tasks/wm.yml

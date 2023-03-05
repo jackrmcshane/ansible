@@ -2,6 +2,8 @@
   become: true
   apt:
     name:
+      - build-essential
+      - unzip
       - xorg
       - tmux
       - xclip
@@ -12,6 +14,20 @@
       - screenkey
       - openssh-client # acess to remote machines
       - openssh-server # access from remote machines
+
+
+- name: install c packages
+  become: true
+  apt:
+    name:
+      - cmake
+      - clang
+      - clang-11
+      - clang-12
+      - clangd
+      - clangd-10
+      - clangd-11
+      - clangd-12
 
 - name: install snap packages
   become: true
