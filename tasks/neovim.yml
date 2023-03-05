@@ -22,14 +22,15 @@
   - name: add github key to ssh-agent
     shell:
       eval "$(ssh-agent)"
-      ssh-add "/home/jamcshan/.ssh/id_rsa"
+      ssh-add "/home/{{ lookup('env', 'USER') }}/.ssh/id_rsa"
 
   - name: clone nvim repo
     git:
-      repo: "git@github.com:jackrmcshane/init.lua.git"
-      dest: "/home/jamcshan/.config/nvim"
+      repo: "{{ nvim_repo }}"
+      dest: "/home/{{ lookup('env', 'USER') }}/.config/nvim"
       version: jdhao-incorp
       clone: yes
+      accept_newhostkey: true
 
 - name: install nvim python dependency
   shell:
