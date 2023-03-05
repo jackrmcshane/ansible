@@ -15,9 +15,9 @@
 
 - name: install snap packages
   become: true
-  classic: true
   snap:
     name: 
       - alacritty
       - btop
       - gh # github cli
+    classic: true
