@@ -22,7 +22,7 @@
   - name: add github key to ssh-agent
     shell:
       eval "$(ssh-agent)"
-      ssh-add "/home/{{ lookup('env', 'USER') }}/.ssh/id_rsa"
+      ssh-add "/home/jamcshan/.ssh/id_rsa"
 
   - name: clone nvim repo
     git:
