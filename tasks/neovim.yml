@@ -27,7 +27,7 @@
   - name: clone nvim repo
     git:
       repo: "git@github.com:jackrmcshane/init.lua.git"
-      dest: "/home/{{ lookup('env', 'USER') }}/.config/nvim"
+      dest: "/home/jamcshan/.config/nvim"
       version: jdhao-incorp
       clone: yes
 
