@@ -1,14 +1,7 @@
 - name: add i3-gaps ppa
   become: true
-  apt_repository:
-    repo: 'ppa:regolith-linux/stable'
-    state: present
-    update_cache: yes
-
-- name: install i3-gaps
-  become: true
   apt:
-    name: i3-gaps
+    name: i3
 
 - name: dconf i3
   shell: dconf write /org/mate/desktop/session/required-components/windowmanager "'i3-gaps'"
