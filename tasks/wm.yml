@@ -5,6 +5,7 @@
     update_cache: yes
 
 - name: install i3-gaps
+  become: true
   apt:
     name: i3-gaps
 
