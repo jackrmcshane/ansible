@@ -1,7 +1,7 @@
 - name: add i3-gaps ppa
   become: true
   apt_repository:
-    repo: 'ppa:regolith-linux/release'
+    repo: 'ppa:regolith-linux/stable'
     state: present
     update_cache: yes
 
