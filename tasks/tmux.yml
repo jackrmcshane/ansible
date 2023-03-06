@@ -1,0 +1,10 @@
+- name: install tmux
+  become: true
+  apt:
+    name: tmux
+
+- name: install tpm
+  git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "/home/jamcshan/.config/tmux/plugins/tpm"
+    clone: yes

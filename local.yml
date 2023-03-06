@@ -9,3 +9,4 @@
     - include: tasks/common.yml
     - include: tasks/neovim.yml
     - include: tasks/wm.yml
+    - include: tasks/tmux.yml
